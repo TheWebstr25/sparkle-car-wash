@@ -665,6 +665,19 @@ li{
 
 @media (max-width: 768px) {
 
+
+  body{
+    font-size: 14px;
+  }
+
+  .hero{
+    height: fit-content;
+    padding: 10px 20px;
+  }
+
+  .cont{
+    transform: translateY(15%);
+  }
   header{
     background: none;
   }
@@ -879,5 +892,11 @@ li{
 
   #photos{
     grid-column: 1/3;
+  }
+
+  .Contact{
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
   }
 }
