@@ -671,8 +671,12 @@ li{
   }
 
   .hero{
-    height: fit-content;
+    height: 120vh;
     padding: 10px 20px;
+  }
+
+  #desc{
+    font-size: 12px;
   }
 
   .cont{
