@@ -53,6 +53,10 @@ header .logo{
   padding-left: 30px;
 }
 
+.x{
+  display: none;
+}
+
 nav ul{
   display: flex;
   gap: 55px;
@@ -666,6 +670,7 @@ li{
   }
   
   nav{
+    display: none;
     position: absolute;
     width: 70vw;
     height: 100vh;
@@ -696,7 +701,7 @@ li{
   }
 
   .x{
-    display: block;
+    display: none;
   }
 
   nav ul{
@@ -717,7 +722,7 @@ li{
   }
 
   #hamburger{
-    display: none;
+    display: flex;
 
   }
 
