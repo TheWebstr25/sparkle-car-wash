@@ -663,7 +663,7 @@ li{
   padding: 12px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 450px) {
 
 
   body{
@@ -671,7 +671,7 @@ li{
   }
 
   .hero{
-    height: 120vh;
+    height: 95vh;
     padding: 10px 20px;
   }
 
