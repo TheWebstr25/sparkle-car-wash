@@ -7,6 +7,10 @@ body{
   width: 100%;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 a{
   text-decoration: none;
   color: #f3f3f3;
@@ -40,21 +44,25 @@ header{
   align-items: center;
   background: rgba(0, 0, 0, 0.3);
   width: 100%;
-  padding: 18px 0;
+  padding: 10px 0;
   position: absolute;
   top: 0;
   left: 0;
 }
 
 header .logo{
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: auto;
   margin: 0;
   padding-left: 30px;
 }
 
 .x{
   display: none;
+}
+
+nav{
+  z-index: 5;
 }
 
 nav ul{
@@ -75,21 +83,19 @@ nav ul li{
 }
 
 .dark{
-  z-index: -2;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background-color: rgba(0, 0, 0, 0.5);
 } 
 
 .cont{
-  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transform: translateY(30%);
+  transform: translateY(25%);
 }
 
 nav ul li:hover{
@@ -115,7 +121,7 @@ nav ul li:hover{
   border-radius: 14px;
 }
 
-.dash{
+.dash, .slant{
   width: 50px;
   height: 7px;
   background: #faf9f9;
@@ -123,14 +129,15 @@ nav ul li:hover{
 }
 
 .h1{
-  margin: 80px 0 20px;
+  margin: 30px 0 20px;
   text-align: left;
 }
 
 .h1 h1{
-  font-size: 50px;
+  font-size: 45px;
   margin: 0;
   font-weight: 550;
+  line-height: 1.2;
 }
 
 #sub{
@@ -141,12 +148,11 @@ nav ul li:hover{
 }
 
 #desc{
-  font-size: 20px;
-  margin: 20px 0;
+  font-size: 21px;
+  margin: 12px 0;
 }
 
 .actn-btn{
-  z-index: 3;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -188,13 +194,11 @@ nav ul li:hover{
   bottom: 0;
   left: 0;
   width: 100%;
-  margin: auto;
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #00000067;
-  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
 }
 
 .socials{
@@ -663,8 +667,15 @@ li{
   padding: 12px 0;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 @media (max-width: 450px) {
 
+  .container{
+    width: 90%;
+  }
 
   body{
     font-size: 14px;
@@ -673,52 +684,65 @@ li{
   .hero{
     height: 95vh;
     padding: 10px 20px;
+    position: relative;
   }
 
   #desc{
     font-size: 12px;
   }
 
-  .cont{
-    transform: translateY(15%);
+  .dark{
+    height: 100%;
   }
+
+  .cont{
+    transform: translateY(40%);
+    z-index: 1;
+  }
+
   header{
+    position: fixed;
     background: none;
+    z-index: 2;
   }
   
   nav{
-    display: none;
     position: absolute;
     width: 70vw;
-    height: 100vh;
+    height: 90vh;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 4;
-    animation: slide-in 1s ease-in-out 0s 1 normal forwards;
-  }
-
-  @keyframes slide-in {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slide-out {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-    
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
   }
 
   .x{
     display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .slant{
+    position: absolute;
+  }
+
+  .slant1{
+    transform: rotate(45deg);
+  }
+
+  .slant2{
+    transform: rotate(-45deg);
   }
 
   nav ul{
@@ -740,7 +764,6 @@ li{
 
   #hamburger{
     display: flex;
-
   }
 
   .dash{
@@ -781,6 +804,10 @@ li{
 
   .h1 h1{
     font-size: 32px;
+  }
+
+  #desc{
+    font-size: 18px;
   }
 
   #simplicity h2, #pricing h2{

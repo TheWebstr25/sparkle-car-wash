@@ -1,22 +1,49 @@
-document.getElementById("hamburger").addEventListener("click", function() {
+const mediaQuery = window.matchMedia("(max-width: 450px)");
 
-    document.getElementById("x").style.display = "block";
+function openMenu() {
+  document.getElementById("nav").style.transform = "translateX(0)";
+  document.getElementById("hamburger").style.display = "none";
+  document.getElementById("x").style.display = "flex";
+}
 
-    document.getElementById("nav").style.display = "flex";
+function closeMenu() {
+  document.getElementById("nav").style.transform = "translateX(-100%)";
+  document.getElementById("x").style.display = "none";
+  document.getElementById("hamburger").style.display = "flex";
+}
 
-    document.getElementById("hamburger").style.display = "none";
+function closeMenuFromLink() {
+  document.getElementById("nav").style.transform = "translateX(-100%)";
+  document.getElementById("x").style.display = "none";
+  document.getElementById("hamburger").style.display = "flex";
+}
 
-    document.getElementById("nav").style.animationName = "slide-in";
-});
+function setUpMenu(e) {
+  const hamburger = document.getElementById("hamburger");
+  const xBtn = document.getElementById("x");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-document. getElementById("x").addEventListener("click", function() {
+  if (e.matches) {
+    // Mobile view
+    hamburger.style.display = "flex";
+    xBtn.style.display = "none";
 
-  document.getElementById("nav").style.animationName = "slide-out";
-    document.getElementById("nav").style.animation = "slide-out 0.5s forwards";
+    hamburger.addEventListener("click", openMenu);
+    xBtn.addEventListener("click", closeMenu);
 
-    document.getElementById("x").style.display = "none";
+    navLinks.forEach(function(link) {
+      link.addEventListener("click", closeMenuFromLink);
+    });
+  } else {
+    // Desktop view
+    hamburger.style.display = "none";
+    xBtn.style.display = "none";
+    // document.getElementById("nav").style.transform = "translateX(0)";
+  }
+}
 
-    document.getElementById("hamburger").style.display = "flex";
+// Initial setup
+setUpMenu(mediaQuery);
 
-    
-});
+// Listen for screen size changes
+mediaQuery.addEventListener("change", setUpMenu);
